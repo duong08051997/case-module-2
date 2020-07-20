@@ -1,3 +1,5 @@
+<a href="index.php?page=add-student">ADD STUDENT</a>
+
 <table>
     <tr>
         <th>STT</th>

@@ -26,5 +26,24 @@ class StudentManager
         }
         return $students;
     }
+    public function addStudent($student)
+    {
+        $sql = "INSERT INTO tbl_students( `name`, `age`, `gender`, `address`, `email`) VALUES (:name ,:age, :gender, :address, :email)";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":name",$student->getName());
+        $stmt->bindParam(":age",$student->getAge());
+        $stmt->bindParam(":gender",$student->getGender());
+        $stmt->bindParam(":address",$student->getAddress());
+        $stmt->bindParam(":email",$student->getEmail());
+        $stmt->execute();
+    }
+    public function delete($id)
+    {
+        $sql = "DELETE FROM tbl_student WHERE student_id = :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":id",$id);
+        $stmt->execute();
+
+    }
 
 }
