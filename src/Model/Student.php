@@ -6,35 +6,37 @@ namespace App\Model;
 
 class Student
 {
-    protected $student_id;
+    protected $id;
     protected $name;
     protected $age;
     protected $gender;
     protected $address;
     protected $email;
-    public function __construct($name,$age,$gender,$address,$email)
+    protected $class_id;
+    public function __construct($name,$age,$gender,$address,$email,$class_id)
     {
         $this->name=$name;
         $this->age=$age;
         $this->gender=$gender;
         $this->address=$address;
         $this->email=$email;
+        $this->class_id=$class_id;
     }
 
     /**
      * @return mixed
      */
-    public function getStudentId()
+    public function getId()
     {
-        return $this->student_id;
+        return $this->id;
     }
 
     /**
-     * @param mixed $student_id
+     * @param mixed $id
      */
-    public function setStudentId($student_id)
+    public function setId($id)
     {
-        $this->student_id = $student_id;
+        $this->id = $id;
     }
 
     /**
@@ -116,4 +118,21 @@ class Student
     {
         $this->email = $email;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getClassId()
+    {
+        return $this->class_id;
+    }
+
+    /**
+     * @param mixed $class_id
+     */
+    public function setClassId($class_id)
+    {
+        $this->class_id = $class_id;
+    }
+
 }
