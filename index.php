@@ -1,17 +1,22 @@
 <?php
+session_start();
 require __DIR__ . "/vendor/autoload.php";
-
 
 use App\Controller\ClassController;
 use App\Controller\ScoreController;
 use App\Controller\StudentController;
+use App\Middleware\Authentication;
 
 require __DIR__ . "/vendor/autoload.php";
+
+$auth = new Authentication();
+$auth->isLogin();
+
+$page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
 
 $studentController = new StudentController();
 $classController = new ClassController();
 $scoreController = new ScoreController();
-$page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
 ?>
 <!doctype html>
 <html lang="en">

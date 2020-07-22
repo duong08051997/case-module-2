@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use Exception;
 use PDO;
 
 class DBConnect
@@ -13,8 +14,8 @@ class DBConnect
     public function __construct()
     {
         $this->dsn = 'mysql:host=localhost;dbname=case_module_2;charset=utf8';
-        $this->username = "duong";
-        $this->password = "Gaubeo@";
+        $this->username = "root";
+        $this->password = "123456@Abc";
     }
 
     public function connect()
