@@ -32,6 +32,7 @@ class StudentController
             $class = $this->classManager->getClassId($id);
             include('src/View/Student/add.php');
         } else {
+
             $id = $_REQUEST['id'];
             $class = $this->classManager->getClassId($id);
             $name = $_REQUEST['name'];
@@ -53,6 +54,7 @@ class StudentController
             $student = $this->studentController->getId($id);
             include('src/View/Student/update.php');
         } else {
+
             $id = $_REQUEST['id'];
             $name = $_REQUEST['name'];
             $age = $_REQUEST['age'];
@@ -60,6 +62,7 @@ class StudentController
             $address = $_REQUEST['address'];
             $email = $_REQUEST['email'];
             $class_id = $_REQUEST['class_id'];
+
             $student = new Student($name, $age, $gender, $address, $email, $class_id);
             $student->setId($id);
             $this->studentController->updateStudent($student);

@@ -18,32 +18,35 @@ class StudentManager
     {
         $sql = "SELECT * FROM tbl_student WHERE class_id =:id";
         $stmt = $this->database->prepare($sql);
-        $stmt->bindParam(":id",$class_id);
+        $stmt->bindParam(":id", $class_id);
         $stmt->execute();
         $data = $stmt->fetchAll();
         $students = [];
         foreach ($data as $item) {
-            $student = new Student($item['name'], $item['age'], $item['gender'], $item['address'], $item['email'],$item['class_id']);
+            $student = new Student($item['name'], $item['age'], $item['gender'], $item['address'], $item['email'], $item['class_id'], $item['img']);
             $student->setId($item['id']);
             array_push($students, $student);
         }
         return $students;
     }
+
     public function view()
     {
 
 
     }
+
     public function addStudent($student)
     {
-        $sql = "INSERT INTO tbl_student( `name`, `age`, `gender`, `address`, `email`,`class_id`) VALUES (:name ,:age, :gender, :address, :email,:class_id)";
+        $sql = "INSERT INTO tbl_student( `name`, `age`, `gender`, `address`, `email`,`class_id`,`img`) VALUES (:name ,:age, :gender, :address, :email,:class_id, :img)";
         $stmt = $this->database->prepare($sql);
-        $stmt->bindParam(":name",$student->getName());
-        $stmt->bindParam(":age",$student->getAge());
-        $stmt->bindParam(":gender",$student->getGender());
-        $stmt->bindParam(":address",$student->getAddress());
-        $stmt->bindParam(":email",$student->getEmail());
-        $stmt->bindParam(":class_id",$student->getClassId());
+        $stmt->bindParam(":name", $student->getName());
+        $stmt->bindParam(":age", $student->getAge());
+        $stmt->bindParam(":gender", $student->getGender());
+        $stmt->bindParam(":address", $student->getAddress());
+        $stmt->bindParam(":email", $student->getEmail());
+        $stmt->bindParam(":class_id", $student->getClassId());
+        $stmt->bindParam(":img", $student->getImg());
         $stmt->execute();
     }
 
@@ -51,30 +54,33 @@ class StudentManager
     {
         $sql = "SELECT * FROM tbl_student WHERE id = :id";
         $stmt = $this->database->prepare($sql);
-        $stmt->bindParam(":id",$id);
+        $stmt->bindParam(":id", $id);
         $stmt->execute();
         return $stmt->fetch();
     }
+
     public function updateStudent($student)
     {
-        $sql= "UPDATE `tbl_student` SET `name`= :name,`age`= :age,`gender`= :gender,`address`= :address,`email`= :email ,`class_id`= :class_id WHERE `id` =:id";
+        $sql = "UPDATE `tbl_student` SET `name`= :name,`age`= :age,`gender`= :gender,`address`= :address,`email`= :email ,`class_id`= :class_id WHERE `id` =:id";
         $stmt = $this->database->prepare($sql);
-        $stmt->bindParam(":id",$student->getId());
-        $stmt->bindParam(":name",$student->getName());
-        $stmt->bindParam(":age",$student->getAge());
-        $stmt->bindParam(":gender",$student->getGender());
-        $stmt->bindParam(":address",$student->getAddress());
-        $stmt->bindParam(":email",$student->getEmail());
-        $stmt->bindParam(":class_id",$student->getClassId());
+        $stmt->bindParam(":id", $student->getId());
+        $stmt->bindParam(":name", $student->getName());
+        $stmt->bindParam(":age", $student->getAge());
+        $stmt->bindParam(":gender", $student->getGender());
+        $stmt->bindParam(":address", $student->getAddress());
+        $stmt->bindParam(":email", $student->getEmail());
+        $stmt->bindParam(":class_id", $student->getClassId());
         $stmt->execute();
     }
+
     public function delete($id)
     {
         $sql = "DELETE FROM `tbl_student` WHERE `id`= :id";
         $stmt = $this->database->prepare($sql);
-        $stmt->bindParam(":id",$id);
+        $stmt->bindParam(":id", $id);
         $stmt->execute();
     }
+
     public function search($keyword)
     {
         $sql = "SELECT * FROM tbl_student WHERE name LIKE :keyword ";
@@ -84,7 +90,7 @@ class StudentManager
         $data = $stmt->fetchAll();
         $students = [];
         foreach ($data as $item) {
-            $student = new Student($item['name'], $item['age'], $item['gender'], $item['address'],$item['email'],$item['class_id']);
+            $student = new Student($item['name'], $item['age'], $item['gender'], $item['address'], $item['email'], $item['class_id']);
             array_push($students, $student);
         }
         return $students;

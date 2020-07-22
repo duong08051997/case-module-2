@@ -1,13 +1,4 @@
-<!--<form action="" method="post">-->
-<!--    Student name: <input type="text" name="name" value="--><?php //echo $student['name']?><!--" placeholder="Student name">-->
-<!--    Age: <input type="text" name="age" value="--><?php //echo $student['age']?><!--" placeholder="age">-->
-<!--    Gender: <input type="text" name="gender" value="--><?php //echo $student['gender']?><!--" placeholder="gender">-->
-<!--    Address: <input type="text" name="address" value="--><?php //echo $student['address']?><!--" placeholder="address">-->
-<!--    Email: <input type="text" name="email" value="--><?php //echo $student['email']?><!--" placeholder="email">-->
-<!--    <input type="text" name="class_id" value="--><?php //echo $student['class_id']?><!--" placeholder="class_id" hidden >-->
-<!--    <input type="submit" value="UPDATE">-->
-<!---->
-<!--</form>-->
+
 <form method="post">
     <div class="form-group">
         <label>Name:</label>

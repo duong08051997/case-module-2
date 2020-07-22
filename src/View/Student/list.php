@@ -4,11 +4,12 @@
 </div>
 
 <div class="pt-3">
-    <h1><?php echo $class['name'] ?></h1>
+    <h2 class="text-primary"> Lớp :<?php echo $class['name'] ?></h2>
     <table class="table table-hover">
         <thead class="table table-dark">
         <tr>
             <th>STT</th>
+            <th>Image</th>
             <th>Name</th>
             <th>Age</th>
             <th>Gender</th>
@@ -33,7 +34,7 @@
                     <td><?php echo $student->getAddress() ?></td>
                     <td><?php echo $student->getEmail() ?></td>
                     <td style="text-align: center">
-                        <a href="index.php?page=delete-student&id=<?php echo $student->getId() ?>" class="btn btn-danger">DELETE</a>
+                        <a href="index.php?page=delete-student&id=<?php echo $student->getId() ?>" onclick="return confirm('are you sure?')" class="btn btn-danger">DELETE</a>
                         <a href="index.php?page=update-student&id=<?php echo $student->getId() ?>" class="btn btn-primary">UPDATE</a>
                     </td>
                 </tr>
