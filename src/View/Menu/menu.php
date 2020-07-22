@@ -28,8 +28,17 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </ul>
-        <form class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Log out</a>
-        </form>
+        <ul class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+               data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <?php echo $_SESSION['userLogin']['username']?>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="nav-link " href="src/View/login/checklogin.php" tabindex="-1"
+                   aria-disabled="false"><span class="glyphicon glyphicon-cog"></span> Log Out</a>
+            </div>
+
+        </ul>
     </div>
 </nav>
